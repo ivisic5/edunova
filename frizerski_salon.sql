@@ -61,4 +61,25 @@ insert into posjeta (datum,djelatnica,korisnik,usluga) values
 ('2019-03-31',2,3,2),
 ('2019-04-01',1,2,1);
 
+update usluga set naziv='bojanje' where sifra=3;
+update  posjeta set datum='2019-05-01' where sifra=5;
+update usluga set cijena=cijena+20 where sifra=3;
 
+alter table usluga add column pranje_kose boolean; 
+update usluga set pranje_kose=1 where sifra>2 ;
+update usluga set pranje_kose=0 where sifra<=2; 
+
+insert into korisnik(ime,prezime) values
+('Ivan','Horvat'),
+('Ana','Kolar');
+
+insert into posjeta(datum,djelatnica,korisnik,usluga) values
+('2019-05-05',2,3,2),
+('2019-05-13',2,4,2),
+('2019-05-15',1,5,3),
+('2019-06-01',1,4,1),
+('2019-06-03',1,3,1);
+
+delete from posjeta where sifra=9;
+delete from posjeta where datum='2019-06-03';
+select* from posjeta;
