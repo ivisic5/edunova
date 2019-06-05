@@ -83,3 +83,18 @@ insert into posjeta(datum,djelatnica,korisnik,usluga) values
 delete from posjeta where sifra=9;
 delete from posjeta where datum='2019-06-03';
 select* from posjeta;
+
+select ime,prezime from djelatnica;
+select ime,prezime,prezime from djelatnica;
+select ime, length(ime) as brojznakova from korisnik;
+select sifra,ime,prezime from korisnik where sifra<=4 and sifra>2;
+select ime,prezime from korisnik where not(ime like'%a');
+select ime, prezime from korisnik
+where prezime  like '%a%nj%';
+select* from djelatnica where oib is not null;
+select cijena, naziv from usluga
+order by cijena desc;
+select datum from posjeta limit 5;
+select * from posjeta
+where datum between '2019-03-15' and '2019-05-15'
+order by djelatnica;
