@@ -25,7 +25,7 @@ id int not null primary key auto_increment,
 ime  varchar (30) not null,
 prezime varchar(30) not null,
 oib char (11),
-certifikat int,
+certifikat_id int,
 nadredeni varchar(30) 
 );
 
@@ -48,4 +48,7 @@ alter table certifikat_id add foreign key (certifikat) references certifikat(id)
 alter table posjeta add foreign key (djelatnica) references djelatnica(id);
 alter table posjeta add foreign key (usluga) references usluga(id);
 alter table posjeta add foreign key (korisnik) references korisnik(id); 
+
+
+
 
