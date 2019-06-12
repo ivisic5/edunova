@@ -49,6 +49,24 @@ alter table posjeta add foreign key (djelatnica) references djelatnica(id);
 alter table posjeta add foreign key (usluga) references usluga(id);
 alter table posjeta add foreign key (korisnik) references korisnik(id); 
 
+insert into certifikat(naziv,datum) values
+('Make up','2015-05-06'),
+('m','2015-09-16'),
+('m','2016-06-09'),
+('m','2016-09-08'),
+('m','2017-01-29'),
+('m','2018-10-06');
+
+insert into certifikat_id(izdavatelj,djelatnica,certifikat) values
+('Master class NY',2,1),
+('Make up by Nina',1,2),
+('Bipa Fashion',3,3),
+('Master class Amsterdam',1,4);
+
+insert into djelatnica( 
+
+
+
 
 
 
