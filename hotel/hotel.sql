@@ -3,7 +3,7 @@ create database Hotel default character set utf8;
 use  Hotel;
 
 
-create table soba_id(
+create table soba(
 id int not null auto_increment primary key,
 kategorija varchar(30) not null,
 kvadratura int not null,
@@ -11,10 +11,10 @@ opis_sobe varchar(200),
 cijena decimal(18,2) not null
 );
 
-create table soba(
+create table soba_rezervirano(
 id int not null auto_increment primary key,
 rezervacija int,
-soba_id int
+soba int
 );
 
 create table vrsta_posla(
@@ -41,24 +41,25 @@ prezime varchar(50) not null
 create table racun(
 id int not null auto_increment primary key,
 datum date not null,
-cijena decimal(18,2) not null
+cijena decimal(18,2) not null,
+rezervacija int
 );
 
 create table rezervacija(
 id int not null auto_increment primary key,
-soba int not null,
+soba_rezervirano int not null,
 gost char not null,
 broj_gostiju int not null,
 pocetak date not null,
 kraj date not null,
-racun int not null
+racun int
 );
 
-alter table soba add foreign key (soba_id) references soba_id(id);
-alter table soba add foreign key (rezervacija) references rezervacija(id);
+alter table soba_rezervirano add foreign key (soba) references soba(id);
+alter table soba_rezervirano add foreign key (rezervacija) references rezervacija(id);
 alter table osoblje add foreign key (vrsta_posla) references vrsta_posla(id);
 alter table rezervacija add foreign key (gost) references gost(oib);
-alter table rezervacija add foreign key (racun) references racun(id);
+alter table racun add foreign key (rezervacija) references rezervacija(id);
 
 
 
